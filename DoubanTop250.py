@@ -32,8 +32,8 @@ def writer_to_file(content):
     with open(r'C:/Users/AOAO/Desktop/doubanTop250.csv','a',encoding='gb18030') as f:
         f.write(json.dumps(content,ensure_ascii=False) + '\n')
         f.close()
-def main():
-    url = 'https://movie.douban.com/top250'
+def main(start):
+    url = 'https://movie.douban.com/top250?start='+str(start)
     html = get_one_page(url)
     for item in parse_one_page(html):
         print(item)
@@ -41,5 +41,5 @@ def main():
     # print(html)
 
 if __name__ == '__main__':
-    for i in range(10)
-    main(i*25)
+    for i in range(10):
+        main(i*25)
